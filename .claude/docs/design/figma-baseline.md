@@ -37,3 +37,13 @@ Neutral Stone: #E3E2E4
 - Four-column color grid
 - Color swatch cards
 ...
+## Typography
+
+### Previously Confirmed
+- **Heading/Display Font**: Newsreader
+- **Body/Interface Font**: DM Sans
+- **Introduction H1**: 60px / 75px / 400
+- **Intro text**: 18px / 1.5
+- **Manifesto label**: 12px / 400 / uppercase / 1.2px letter spacing
+- **Feature card title**: 20px / 700
+- **Feature card description**: 14px / 1.75

@@ -14,6 +14,24 @@
   --font-heading: 'Newsreader', serif;
   --font-body: 'DM Sans', sans-serif;
 
+  --fs-display: 60px;
+  --lh-display: 75px;
+  --fw-display: 400;
+
+  --fs-body-lg: 18px;
+  --lh-body-lg: 1.5;
+
+  --fs-label: 12px;
+  --fw-label: 400;
+  --ls-label: 1.2px;
+
+  --fs-card-title: 20px;
+  --fw-card-title: 700;
+
+  --fs-card-desc: 14px;
+  --lh-card-desc: 1.75;
+
+
   /* Spacing */
   --spacing-4: 4px;
   --spacing-8: 8px;
