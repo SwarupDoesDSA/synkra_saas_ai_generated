@@ -41,4 +41,22 @@
 
   /* Radius */
   --radius-12: 12px;
+  --radius-8: 8px;
+
+  /* Colors — Pagination (Figma component set "Pagination")
+     Light mode */
+  --color-ink: #131210;
+  --color-surface-muted: #f2f1ef;
+  --color-border: #cbc9c2;
+  --color-icon-muted: #a09e97;
+  /* Dark mode */
+  --color-ink-dark: #fcfcfd;
+  --color-surface-dark: #1f1e1c;
+  --color-icon-muted-dark: #78766f;
+
+  /* Typography — body sm (Pagination) */
+  --fs-body-sm: 14px;
+  --lh-body-sm: 1.75;
+  --lh-body-sm-bold: 1.5;
+  --fw-bold: 700;
 }

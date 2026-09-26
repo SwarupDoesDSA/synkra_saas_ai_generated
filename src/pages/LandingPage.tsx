@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from '../components/layout/Section';
 import { Container } from '../components/layout/Container';
 import { Heading } from '../components/ui/Heading';
 import { FeatureCard } from '../components/ui/FeatureCard';
 import { ColorSwatch } from '../components/ui/ColorSwatch';
+import { Pagination } from '../components/ui/Pagination';
 
 export const LandingPage: React.FC = () => {
+  const totalPages = 10;
+  const [page, setPage] = useState(3);
+
+  const goPrev = () => setPage((current) => Math.max(1, current - 1));
+  const goNext = () => setPage((current) => Math.min(totalPages, current + 1));
+
+  const range = {
+    start: (page - 1) * 20 + 1,
+    end: Math.min(page * 20, 200),
+    total: 200,
+  };
+
   return (
     <>
       <Section id="introduction">
@@ -58,6 +71,30 @@ export const LandingPage: React.FC = () => {
                 label="Structure"
               />
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section id="pagination">
+        <Container className="container--wide">
+          <Heading level="h2">Pagination</Heading>
+          <Pagination
+            mode="light"
+            page={page}
+            totalPages={totalPages}
+            range={range}
+            onPrevPage={goPrev}
+            onNextPage={goNext}
+          />
+          <div className="pagination-demo-backdrop">
+            <Pagination
+              mode="dark"
+              page={page}
+              totalPages={totalPages}
+              range={range}
+              onPrevPage={goPrev}
+              onNextPage={goNext}
+            />
           </div>
         </Container>
       </Section>

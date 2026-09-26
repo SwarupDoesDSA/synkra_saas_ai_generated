@@ -95,3 +95,169 @@
 .swatch-label {
   color: var(--color-text-caption);
 }
+
+/* ============================================================
+   Showcase container — matches the Figma "Container" frame
+   (1312px wide, 64px side padding => 1184px content width).
+   ============================================================ */
+.container--wide {
+  box-sizing: border-box;
+  max-width: 1312px;
+  padding: 0 64px;
+}
+
+@media (max-width: 767.98px) {
+  .container--wide {
+    padding: 0 var(--spacing-16);
+  }
+}
+
+/* ============================================================
+   Pagination — Figma component set "Pagination" (15240:9016)
+   Mode = Light | Dark, Breakpoint = Dekstop | Mobile
+   ============================================================ */
+
+.pagination,
+.pagination *,
+.pagination *::before,
+.pagination *::after {
+  box-sizing: border-box;
+}
+
+.pagination {
+  /* Mode=Light (default) */
+  --pg-ink: var(--color-ink);
+  --pg-fill: var(--color-surface-muted);
+  --pg-border: var(--color-border);
+  --pg-icon: var(--color-icon-muted);
+
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--fs-body-sm);
+  font-weight: 400;
+  color: var(--pg-ink);
+
+  /* Breakpoint=Mobile (base layout) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) 0;
+}
+
+/* Mode=Dark */
+.pagination[data-mode='dark'] {
+  --pg-ink: var(--color-ink-dark);
+  --pg-fill: var(--color-surface-dark);
+  --pg-border: var(--color-ink-dark);
+  --pg-icon: var(--color-icon-muted-dark);
+}
+
+/* Summary cluster: "Shows 0 to 0 from 0 data" */
+.pagination__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  height: 32px;
+  margin: 0;
+  line-height: var(--lh-body-sm);
+}
+
+.pagination__summary strong {
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body-sm-bold);
+}
+
+/* Controls cluster */
+.pagination__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.pagination__label {
+  line-height: var(--lh-body-sm);
+}
+
+.pagination__page-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Cells: 32×32, 8px padding, 14/150% bold */
+.pagination__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: var(--spacing-8);
+  font-family: inherit;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body-sm-bold);
+  font-weight: var(--fw-bold);
+  color: var(--pg-ink);
+  background: none;
+  border: 0 solid var(--pg-border);
+}
+
+.pagination__item svg {
+  display: block;
+  flex: none;
+  color: var(--pg-icon);
+}
+
+.pagination__item--prev {
+  background-color: var(--pg-fill);
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-radius: var(--radius-8) 0 0 var(--radius-8);
+}
+
+.pagination__item--current {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-radius: 0 var(--radius-8) var(--radius-8) 0;
+}
+
+.pagination__item--total {
+  border-radius: var(--radius-8);
+}
+
+.pagination__item--next {
+  background-color: var(--pg-fill);
+  border-radius: var(--radius-8);
+}
+
+/* Breakpoint=Dekstop — Figma switches to a space-between row at 1152px;
+   768px is the responsive threshold agreed for this component. */
+@media (min-width: 768px) {
+  .pagination {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-8);
+    padding: var(--spacing-16) 0;
+
+    /* Figma's Mode=Light, Breakpoint=Dekstop variant is a fixed 1152x64 frame,
+       while the showcase Container is 1184px wide (1312 - 2x64). Cap the
+       component at its Figma width and centre it so it sits 16px in from the
+       container edge — matching the Dark variant, which is already inset 16px
+       by .pagination-demo-backdrop. Mobile (D2) is unaffected: below 1280px
+       the container content is already <= 1152px, so the cap never binds. */
+    max-width: 1152px;
+    margin-inline: auto;
+  }
+}
+
+/* Presentation backdrop for the Dark variant. In Figma the Dark modes sit on
+   "Rectangle 2" (#131210) — documentation chrome, not part of the component. */
+.pagination-demo-backdrop {
+  background-color: var(--color-ink);
+  padding: var(--spacing-16);
+}
