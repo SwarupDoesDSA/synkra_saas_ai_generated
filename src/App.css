@@ -261,3 +261,150 @@
   background-color: var(--color-ink);
   padding: var(--spacing-16);
 }
+
+/* ============================================================
+   Badge — Figma component set "Badge" (10758:42148)
+   Mode = Light | Dark, State = Primary|Secondary|Tertiary|Success|Info|Warning|Danger,
+   Size = Big | Small  =>  2 modes x 7 states x 2 sizes = 28 variants.
+
+   The three Figma axes are exposed as data-mode / data-state / data-size, so
+   the whole matrix collapses into 14 colour rules + 1 size override instead of
+   28 classes. Colours are exposed through two component-scoped custom
+   properties (--badge-bg / --badge-fg); the icon uses currentColor, so it
+   always matches the label exactly as it does in Figma.
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+
+  /* Figma auto-layout hugs contents in both axes: intrinsic width only.
+     The 107px width on every Figma variant is a "Your Text" placeholder
+     artifact and is deliberately not reproduced here. */
+
+  /* Size=Small (default): padding 4 / 12, gap 4 */
+  padding: var(--spacing-4) var(--spacing-12);
+  gap: var(--spacing-4);
+
+  border-radius: var(--radius-pill);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-body-xs);
+  font-weight: 400;
+  line-height: var(--lh-body-sm);
+  letter-spacing: 0;
+  /* Figma text is auto-width and never wraps; the pill must stay one line. */
+  white-space: nowrap;
+
+  /* Mode=Light, State=Primary (Figma default variant) */
+  --badge-bg: var(--color-badge-primary-bg);
+  --badge-fg: var(--color-badge-primary-fg);
+
+  color: var(--badge-fg);
+  background-color: var(--badge-bg);
+}
+
+/* Size=Big: padding 8 / 12, gap 8, 14px type, 16px icon */
+.badge[data-size='big'] {
+  padding: var(--spacing-8) var(--spacing-12);
+  gap: var(--spacing-8);
+  font-size: var(--fs-body-sm);
+}
+
+/* Icon geometry is set by the component (16px Big / 14px Small) so that the
+   SVG scales exactly like the Figma instance does. */
+.badge__icon {
+  display: block;
+  flex: none;
+}
+
+/* --- Mode=Light ------------------------------------------------------- */
+.badge[data-state='secondary'] {
+  --badge-bg: var(--color-badge-secondary-bg);
+  --badge-fg: var(--color-badge-secondary-fg);
+}
+
+.badge[data-state='tertiary'] {
+  --badge-bg: var(--color-badge-tertiary-bg);
+  --badge-fg: var(--color-badge-tertiary-fg);
+}
+
+.badge[data-state='success'] {
+  --badge-bg: var(--color-badge-success-bg);
+  --badge-fg: var(--color-badge-success-fg);
+}
+
+.badge[data-state='info'] {
+  --badge-bg: var(--color-badge-info-bg);
+  --badge-fg: var(--color-badge-info-fg);
+}
+
+.badge[data-state='warning'] {
+  --badge-bg: var(--color-badge-warning-bg);
+  --badge-fg: var(--color-badge-warning-fg);
+}
+
+.badge[data-state='danger'] {
+  --badge-bg: var(--color-badge-danger-bg);
+  --badge-fg: var(--color-badge-danger-fg);
+}
+
+/* --- Mode=Dark (default variant, then the remaining states) ----------- */
+.badge[data-mode='dark'] {
+  --badge-bg: var(--color-badge-primary-bg-dark);
+  --badge-fg: var(--color-badge-primary-fg-dark);
+}
+
+.badge[data-mode='dark'][data-state='secondary'] {
+  --badge-bg: var(--color-badge-secondary-bg-dark);
+  --badge-fg: var(--color-badge-secondary-fg-dark);
+}
+
+.badge[data-mode='dark'][data-state='tertiary'] {
+  --badge-bg: var(--color-badge-tertiary-bg-dark);
+  --badge-fg: var(--color-badge-tertiary-fg-dark);
+}
+
+.badge[data-mode='dark'][data-state='success'] {
+  --badge-bg: var(--color-badge-success-bg-dark);
+  --badge-fg: var(--color-badge-success-fg-dark);
+}
+
+.badge[data-mode='dark'][data-state='info'] {
+  --badge-bg: var(--color-badge-info-bg-dark);
+  --badge-fg: var(--color-badge-info-fg-dark);
+}
+
+.badge[data-mode='dark'][data-state='warning'] {
+  --badge-bg: var(--color-badge-warning-bg-dark);
+  --badge-fg: var(--color-badge-warning-fg-dark);
+}
+
+.badge[data-mode='dark'][data-state='danger'] {
+  --badge-bg: var(--color-badge-danger-bg-dark);
+  --badge-fg: var(--color-badge-danger-fg-dark);
+}
+
+/* ============================================================
+   Badge showcase — Figma "Badge" documentation section (10758:42143).
+   Presentation chrome only; it is not part of the Badge component.
+   ============================================================ */
+.badge-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.badge-showcase__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+/* In Figma the Dark column sits on "Rectangle 2" (#131210) —
+   documentation chrome, not part of the component. */
+.badge-demo-backdrop {
+  background-color: var(--color-ink);
+  padding: var(--spacing-16);
+}

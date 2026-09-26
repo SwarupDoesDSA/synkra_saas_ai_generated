@@ -5,6 +5,18 @@ import { Heading } from '../components/ui/Heading';
 import { FeatureCard } from '../components/ui/FeatureCard';
 import { ColorSwatch } from '../components/ui/ColorSwatch';
 import { Pagination } from '../components/ui/Pagination';
+import { Badge, type BadgeState } from '../components/ui/Badge';
+
+/** Figma `State` axis of component set "Badge" (10758:42148), in Figma order. */
+const BADGE_STATES: BadgeState[] = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'success',
+  'info',
+  'warning',
+  'danger',
+];
 
 export const LandingPage: React.FC = () => {
   const totalPages = 10;
@@ -95,6 +107,46 @@ export const LandingPage: React.FC = () => {
               onPrevPage={goPrev}
               onNextPage={goNext}
             />
+          </div>
+        </Container>
+      </Section>
+
+      {/* Figma documentation section "Badge" (10758:42143): the component set
+          is shown as 2 modes x 7 states x 2 sizes. Big variants carry no
+          suffix; Figma only defines the "%" text node on Size=Small, so it is
+          passed explicitly instead of being hard-coded in the component. */}
+      <Section id="badge">
+        <Container className="container--wide">
+          <Heading level="h2">Badge</Heading>
+
+          <div className="badge-showcase">
+            <div className="badge-showcase__row">
+              {BADGE_STATES.map((state) => (
+                <React.Fragment key={`light-${state}`}>
+                  <Badge state={state} size="big">
+                    Your Text
+                  </Badge>
+                  <Badge state={state} size="small" suffix="%">
+                    Your Text
+                  </Badge>
+                </React.Fragment>
+              ))}
+            </div>
+
+            <div className="badge-demo-backdrop">
+              <div className="badge-showcase__row">
+                {BADGE_STATES.map((state) => (
+                  <React.Fragment key={`dark-${state}`}>
+                    <Badge state={state} mode="dark" size="big">
+                      Your Text
+                    </Badge>
+                    <Badge state={state} mode="dark" size="small" suffix="%">
+                      Your Text
+                    </Badge>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </Section>

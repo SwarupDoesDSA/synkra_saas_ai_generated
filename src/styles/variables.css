@@ -35,6 +35,7 @@
   /* Spacing */
   --spacing-4: 4px;
   --spacing-8: 8px;
+  --spacing-12: 12px;
   --spacing-16: 16px;
   --spacing-24: 24px;
   --spacing-32: 32px;
@@ -42,6 +43,7 @@
   /* Radius */
   --radius-12: 12px;
   --radius-8: 8px;
+  --radius-pill: 999px;
 
   /* Colors — Pagination (Figma component set "Pagination")
      Light mode */
@@ -59,4 +61,39 @@
   --lh-body-sm: 1.75;
   --lh-body-sm-bold: 1.5;
   --fw-bold: 700;
+
+  /* Typography — body xs (Badge Size=Small, Figma "Body/Reguler/text-xs") */
+  --fs-body-xs: 12px;
+
+  /* Colors — Badge (Figma component set "Badge" 10758:42148)
+     Light mode: tinted background + saturated foreground */
+  --color-badge-primary-bg: #ebf2fd;
+  --color-badge-primary-fg: #1a56db;
+  --color-badge-secondary-bg: #e4e3df;
+  --color-badge-secondary-fg: #131210;
+  --color-badge-tertiary-bg: #0f766e;
+  --color-badge-tertiary-fg: #ccfbf1;
+  --color-badge-success-bg: #edfaf3;
+  --color-badge-success-fg: #1b6f4a;
+  --color-badge-info-bg: #ebf2fd;
+  --color-badge-info-fg: #1455a3;
+  --color-badge-warning-bg: #fef6e7;
+  --color-badge-warning-fg: #92510a;
+  --color-badge-danger-bg: #fef0f0;
+  --color-badge-danger-fg: #be1c1c;
+  /* Dark mode: dark background + light foreground */
+  --color-badge-primary-bg-dark: #081d5b;
+  --color-badge-primary-fg-dark: #75a2f0;
+  --color-badge-secondary-bg-dark: #333230;
+  --color-badge-secondary-fg-dark: #fcfcfd;
+  --color-badge-tertiary-bg-dark: #134e4a;
+  --color-badge-tertiary-fg-dark: #5eead4;
+  --color-badge-success-bg-dark: #052e1f;
+  --color-badge-success-fg-dark: #edfaf3;
+  --color-badge-info-bg-dark: #082046;
+  --color-badge-info-fg-dark: #ebf2fd;
+  --color-badge-warning-bg-dark: #4d3308;
+  --color-badge-warning-fg-dark: #fef6e7;
+  --color-badge-danger-bg-dark: #4d1212;
+  --color-badge-danger-fg-dark: #fef0f0;
 }
